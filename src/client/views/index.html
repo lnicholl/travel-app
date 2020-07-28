@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css?family=Avenir:300">
+    <link rel="stylesheet" href="src/client/styles/main.scss">
+  </head>
+  <body>
+    <div id="app">
+      <section class="box">
+        <div class="headline">
+          Travel App
+        </div>
+      </section>
+      <section class="box">
+        <div class="dataInput">
+          <label for="city">Which city are you visiting?</label>
+          <!-- city value referenced in mainFunction -->
+          <input type="text" id="city" placeholder="Enter your destination city here">
+          <label>What date are you leaving on?</label>
+          <!-- dateOut value referenced in mainFunction -->
+          <input id="dateOut" placeholder="YYYY-MM-DD">
+          <label>What date will you return?</label>
+          <!-- dateReturn value for use in mainFunction -->
+          <input id="dateReturn" placeholder="YYYY-MM-DD">
+          <button id="generate" type="submit"> Let's go! </button>
+        </div>
+      </section>
+      <section class="box">
+        <div class="details">
+          <div class="title">
+            Your trip details...
+          </div>
+          <!-- "You are travelling to " + geonamesData + " in " + daysCountdown + " days. The length of your trip is " + lengthOfTrip + " days." -->
+          <p id="countdown"></p>
+          <!-- "You should expect the weather in " + geonamesData + " to be: " -->
+          <p id="weather"></p>
+          <!-- weatherForecast.description + ". The temperature is " + weatherForecast.temp + "°C. Take a look below!" -->
+          <p id="description"></p>
+        </div>
+      </section>
+      <section class="box">
+        <div class="imageHolder">
+          <!-- pixaResponse.hits[0].webformatURL -->
+          <img id="pixaImage" src="">
+        </div>
+      </section>
+    </div>
+    <script>
+    // check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // service workers to allow offline interaction
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+      }
+    </script>
+  </body>
+</html>
